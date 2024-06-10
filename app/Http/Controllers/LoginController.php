@@ -10,7 +10,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function store(){
-        dd("Iniciando sesión");
+    public function store(Request $request){
+       
     }
 }
