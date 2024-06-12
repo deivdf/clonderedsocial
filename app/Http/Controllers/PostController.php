@@ -9,6 +9,7 @@ class PostController extends Controller
     //
     public function index()
     {
-        dd(auth()->user());
+        return view('muro');
+        //dd(auth()->user());
     }
 }
