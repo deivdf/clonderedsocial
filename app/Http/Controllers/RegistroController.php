@@ -39,7 +39,7 @@ class RegistroController extends Controller
         // ]);
         auth()->attempt($request->only('email', 'password'));
 
-        return redirect()->route('post.index'); 
+        return redirect()->route('dash.index'); 
 
     }
 }

@@ -14,10 +14,20 @@
             <div class="container mx-auto flex justify-between items-center">
                 <a href="/"><h1 class="text-3xl font-black"> RedSocial</h1></a>
 
-                <nav class="flex gap-2 items-center">
-                    <a class="text-gray-600 uppercase font-bold hover:text-indigo-600 text-sm" href="/login"> Login </a>
-                    <a class="text-gray-600 uppercase font-bold hover:text-indigo-600 text-sm" href="/registro"> Registro </a>
-                </nav>
+                @auth
+                    <nav class="flex gap-2 items-center">
+                        <a class="text-gray-600 font-bold hover:text-indigo-600 text-sm" href=#> Hola:
+                             <span class=" font-normal"> {{auth()->user()->username}}</span> 
+                             </a>
+                        <a class="text-gray-600 uppercase font-bold hover:text-indigo-600 text-sm" href="{{route('logout')}}"> cerrar sesion </a>
+                    </nav>
+                @endauth
+                @guest                    
+                    <nav class="flex gap-2 items-center">
+                        <a class="text-gray-600 uppercase font-bold hover:text-indigo-600 text-sm" href="{{route('login')}}"> Login </a>
+                        <a class="text-gray-600 uppercase font-bold hover:text-indigo-600 text-sm" href="{{route('registro')}}"> Registro </a>
+                    </nav>
+                @endguest
             </div>
         </header>
         <main class="container mx-auto mt-10">
