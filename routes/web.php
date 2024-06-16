@@ -20,3 +20,4 @@ Route::get('logout', [LogoutController::class, 'store'])->name('logout');
 Route::get('/muro', [PostController::class, 'index'])->name('post.index');
 Route::controller(DashController::class)->middleware('auth');
 Route::get('{user:username}',[DashController::class, 'index'])->name('dash.index');
+Route::get('/post/create', [DashController::class, 'create'])->name('post.create');

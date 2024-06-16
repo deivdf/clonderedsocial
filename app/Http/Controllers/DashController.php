@@ -15,4 +15,7 @@ class DashController extends Controller
         // Pass the user data to the view
         return view('dashboard', ['user' => $user]);
     }
+    public function create(){
+        return view('post.muro');
+    }
 }
