@@ -17,12 +17,9 @@
                 @auth
                     <nav class="flex gap-2 items-center">
                         <a class="text-gray-600 font-bold hover:text-indigo-600 text-sm" href=#> Hola:
-                             <span class=" font-normal"> {{$user->username}}</span> 
+                            <span class=" font-normal"> {{$user->username}}</span> 
                              </a>
-                        <form action="{{route('logout')}}" method="post">
-                            @csrf
-                            <button class="text-gray-600 uppercase font-bold hover:text-indigo-600 text-sm" > cerrar sesion </button> 
-                        </form>
+                        <a class="text-gray-600 uppercase font-bold hover:text-indigo-600 text-sm" href="{{route('logout')}}"> cerrar sesion </a>
                     </nav>
                 @endauth
                 @guest                    

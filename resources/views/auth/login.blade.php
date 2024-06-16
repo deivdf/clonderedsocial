@@ -45,9 +45,6 @@
                     <p> {{ $message }} </p>
                 </div>
                 @enderror
-                <div class="mb-5 flex justify-between">
-                    <label class="block text-sm font-bold text-gray-600">Mantener sesion iniciada</label><input type="checkbox" name="remember">
-                </div>
                 <div class="flex justify-center">
                     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Iniciar Sesión </button>
                 </div>

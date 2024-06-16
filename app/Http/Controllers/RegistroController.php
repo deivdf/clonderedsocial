@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegistroController extends Controller
@@ -40,7 +39,7 @@ class RegistroController extends Controller
         // ]);
         auth()->attempt($request->only('email', 'password'));
 
-        return redirect()->route('dash.index');
+        return redirect()->route('dash.index'); 
 
     }
 }

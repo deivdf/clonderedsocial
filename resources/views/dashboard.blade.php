@@ -5,7 +5,7 @@
 @endsection
 
 @section('contenido')
-  <div class="flex justify-center bg-white">
+  <div class="flex justify-center bg-white p-8">
     <div class="w-full md:w-8/12 lg:w-6/12 md:flex">
       <div class="md:w-8/12 lg:w-6/12">
         <img src="{{asset('img/users.svg')}}" alt="Profile Picture"/>
