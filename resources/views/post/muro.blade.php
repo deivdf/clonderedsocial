@@ -4,33 +4,35 @@
 @section('Titulo')
     Tu muro
 @endsection
-@section('contenido')
-    <div class="bg-gray-200 h-full">
-        <div class="container mx-auto px-4 items-center ">
-            <div class="grid grid-cols-2 md:grid-cols-1 gap-4 p-4">
-                <!-- Contenido del muro -->
-                <div class="bg-white rounded-lg shadow-md">
-                    <div class="p-4">
-                        <h5 class="text-lg font-bold">Nombre del usuario</h5>
-                        <p class="text-gray-700">
-                            Los gatitos tienen ojos grandes
-                            y redondos que brillan como estrellas
-                            en la noche. Sus iris pueden ser de
-                            un azul intenso, verde esmeralda,
-                            dorado o incluso un fascinante patrón
-                            de calico. Sus pupilas pueden estar
-                            tan abiertas que parece que miran 
-                            directamente a tu alma.
-                        </p>
+@push('styles')
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+@endpush
 
-                    </div>
-                    <div class="px-4 py-2">
-                        <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">Reactar</a>
-                        <a href="#" class="ml-2">Comentar</a>
-                    </div>
+
+@section('contenido')
+    <div class="bg-gray-200 h-full p-12">
+        <div class="container mx-auto px-4 items-center ">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                <!-- Contenido del muro -->
+                <div class="bg-white rounded-lg shadow-md mb-4">
+                    <form action="{{ route('images.store') }}" id="dropzone" class="dropzone border-dashed
+                     border-2 w-full h-96 flex flex-col justify-center items-center">
+                        @csrf
+                    </form>
                 </div>
-    
-                <!-- ... Mas publicaciones -->
+                <div class="bg-white rounded-lg shadow-md mb-4 text-center">
+                    <h5 class="text-lg font-bold p-4">Crear una nueva publicación</h5>
+                    <form action="{{ route('images.store') }}" method="post">
+                      @csrf
+                      <div class="p-4">
+                        <textarea name="Textarea" id="Textarea" type="textarea" cols="30" rows="5" class="w-full p-2" placeholder="Escribe algo...">{{old('Textarea')}}</textarea>
+                        @error('Textarea') <span class="text-red-500">{{ $message }}</span> @enderror
+                      </div>    
+                      <div class="px-4 py-10">
+                        <input type="submit" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded" value="Crear publicacion"/>
+                      </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     //
-    public function index()
+    public function store(Request $request)
     {
-        return view('muro');
-        //dd(auth()->user());
+        $imagen = $request->file('file');
+        return  response()->json(['imagen', $imagen->extension()]);
     }
 }

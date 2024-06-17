@@ -3,11 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        @stack('styles')
+        @stack('script')
         <link href="{{asset('css/app.css')}}" rel="stylesheet">
         @vite('resources/css/app.css')
         <title>Red-Social - @yield('Titulo')</title>
-        <script href="{{asset('js/app.js')}}" defer></script>
-        </style>
+        <script src="{{ asset('js/app.js') }}"></script>
+        @vite('resources/js/app.js')
+        
+      
     </head>
     <body class="w-full h-full bg-no-repeat" style="background-image: url(/img/pexel-min.jpg); background-size: cover; background-position: center;">
         <header class="p-5 border-b bg-white shadow">
@@ -28,7 +32,7 @@
                                 Crear
                             </a>
                         </div>
-                        <a class="text-gray-600 font-bold hover:text-indigo-600 text-sm" href=#> Hola:
+                        <a class="text-gray-600 font-bold hover:text-indigo-600 text-sm" href="{{route('dash.index', auth()->user()->username)}}"> Hola:
                             <span class=" font-normal"> {{auth()->user()->username}}</span> 
                         </a>
                         <a class="text-gray-600 uppercase font-bold hover:text-indigo-600 text-sm" href="{{route('logout')}}"> cerrar sesion </a>
